@@ -1,0 +1,82 @@
+{
+  "service": "hubspot_deals_etl",
+  "environment": "development",
+  "validated_at": "2026-08-17T10:38:46Z",
+  "status": "PASSED",
+  "summary": {
+    "total_tests": 7,
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "live_api_test": "SUCCESSFUL"
+  },
+  "live_api_test_results": {
+    "status_code": 200,
+    "token_valid": true,
+    "deals_extracted_count": 5,
+    "duration_ms": 817.18,
+    "sample_deal": {
+      "id": "341763907320",
+      "dealname": "test1",
+      "amount": "5000",
+      "dealstage": "qualifiedtobuy",
+      "pipeline": "default",
+      "closedate": "2026-08-31T05:22:50.368Z",
+      "createdate": "2026-08-13T05:29:12.531Z"
+    }
+  },
+  "test_cases": [
+    {
+      "id": "test_01_health_endpoint",
+      "name": "Health Endpoint Verification",
+      "status": "PASSED",
+      "endpoint": "/health",
+      "http_status": 200
+    },
+    {
+      "id": "test_02_index_root_endpoint",
+      "name": "Root Index Endpoint Verification",
+      "status": "PASSED",
+      "endpoint": "/",
+      "http_status": 200
+    },
+    {
+      "id": "test_03_hubspot_api_service_validation",
+      "name": "HubSpot API Token & Rate Limit Handling",
+      "status": "PASSED",
+      "component": "HubSpotAPIService"
+    },
+    {
+      "id": "test_04_data_source_resource_transformation",
+      "name": "DLT Deals Resource Initialization",
+      "status": "PASSED",
+      "component": "data_source"
+    },
+    {
+      "id": "test_05_deal_record_schema_and_metadata",
+      "name": "Property Casting & Custom Property Isolation",
+      "status": "PASSED",
+      "component": "data_source"
+    },
+    {
+      "id": "test_06_checkpoint_interruption_resume",
+      "name": "Checkpoint & State Persistence Verification",
+      "status": "PASSED",
+      "component": "checkpoint_callback"
+    },
+    {
+      "id": "test_07_live_hubspot_api_extraction",
+      "name": "Live HubSpot API CRM Deals Extraction",
+      "status": "PASSED",
+      "deals_retrieved": 5
+    }
+  ],
+  "quality_checks": {
+    "readme_present": true,
+    "env_example_present": true,
+    "code_commented_and_formatted": true,
+    "docker_compose_configured": true,
+    "deals_schema_verified": true,
+    "live_api_extraction_verified": true
+  }
+}

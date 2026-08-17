@@ -1,0 +1,13 @@
+{
+  "project_name": "hubspot_user",
+  "service_name": "hubspot_user",
+  "template_path": "./template", 
+  "destination_dir": "./hubspot_user",
+  "ports": {
+    "dev": 4117,
+    "stage": 5117,
+    "prod": 3117
+  },
+  "force_overwrite": false,
+  "verbose": false
+}
